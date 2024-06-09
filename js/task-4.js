@@ -1,24 +1,24 @@
-const form = document.querySelector(".login-form");
+// const form = document.querySelector(".login-form");
 
-form.addEventListener("submit", event => {
-    event.preventDefault();
+// form.addEventListener("submit", event => {
+//     event.preventDefault();
 
-    const email = form.elements.email.value.trim();
-    const password = form.elements.password.value.trim();
+//     const email = form.elements.email.value.trim();
+//     const password = form.elements.password.value.trim();
 
-    if (!email || !password) {
-        alert('All form fields must be filled in');
-    }
-    else {
-        const formData = {
-            email,
-            password
-        };
+//     if (!email || !password) {
+//         alert('All form fields must be filled in');
+//     }
+//     else {
+//         const formData = {
+//             email,
+//             password
+//         };
 
-        console.log(formData);
-        form.reset();
-    }
-});
+//         console.log(formData);
+//         form.reset();
+//     }
+// });
 
 //!!!!!!! Попрактикуватися із методом ForEach. 
 // const formData = {};
@@ -29,3 +29,22 @@ form.addEventListener("submit", event => {
 // });
 // console.log(formData);
 // ```
+const form = document.querySelector(".login-form");
+form.addEventListener("submit", handleGetInput);
+function handleGetInput(event) {
+  event.preventDefault();
+  const { email, password } = event.currentTarget.elements;
+  console.log(event.currentTarget.elements);
+  if (email.value && password.value) {
+    const data = {
+      email: email.value,
+      password: password.value,
+    };
+    console.log(data);
+  } else {
+    alert("All form fields must be filled in");
+  }
+  //   email.value = "";
+  //   password.value = "";
+  form.reset();
+}
