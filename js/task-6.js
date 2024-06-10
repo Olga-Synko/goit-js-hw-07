@@ -21,7 +21,7 @@ createButton.addEventListener("click", handlerCreate);
 function handlerCreate() {
   if (inputResult >= 1 && inputResult <= 100) {
     boxes.innerHTML = "";
-    createBoxes(inputResult); 
+    createBoxes(inputResult);
     const items = Array.from(document.querySelectorAll(".box"));
     
     let size = 30;
